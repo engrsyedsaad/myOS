@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Project</title>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        #bottom {
+            background-color: rgba(0, 0, 0, 0.764);
+            ;
+        }
+
+        #menu {
+            background-color: rgba(0, 0, 0, 0.966);
+        }
+
+        #noteicon:hover {
+            background-color: rgba(20, 20, 20, 0.755);
+        }
+
+        #Calicon:hover {
+            background-color: rgba(20, 20, 20, 0.755);
+        }
+
+        #Button .btn1 {
+            width: 60px;
+            height: 40px;
+            background-color: transparent;
+            color: black;
+            border-radius: 4px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            outline: 0;
+            border: 0;
+        }
+
+        #Button .equal {
+            width: 120px;
+        }
+
+        #Button .operator {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body class="relative overflow-hidden">
+    <div id="noteicon"
+        class="w-[100px] h-[100px] bg-cover absolute top-4 left-4 z-50 rounded flex items-center flex-col   ">
+        <img class=" w-[70px] h-[70px] " src="noteBook2.png" alt="notebook">
+        <h4 class="text-white ">NoteBook</h4>
+    </div>
+    <div id="Calicon"
+        class="w-[100px] h-[100px] bg-cover absolute top-40 left-4 z-50 rounded p-2 flex items-center flex-col   ">
+        <img class=" w-[60px] h-[60px] " src="calicon1.png" alt="Calculator">
+        <h4 class="text-white font-normal">Calculator</h4>
+    </div>
+    <div id="main" class="bg-[url(bgimage.jpg)]  bg-cover w-full h-full text-white ">
+        <!-- unper body  -->
+        <div id="center" class="w-full h-[95%] relative">
+            <!-- inside manu -->
+            <div id="menu" class="w-[15%] h-[50%] rounded-[5px]  absolute z-40 bottom-1 left-1 hidden ">
+                <!-- user and name start  -->
+                <div class="flex items-center ">
+                    <img src="user2.png" alt="user" class="w-[70px] h-[70px] p-3">
+                    <h3>Syed Saad</h3>
+                </div>
+                <!-- Weather  -->
+                <div id="menuweather"
+                    class="w-[90%] rounded-[5px] m-auto h-[40%] p-4 bg-[url(weather-bg2.jpg)] bg-cover  left">
+                    <div class="flex flex-col items-center">
+                        <img src="Weather cloudy.png" alt="cloudy weather" class="day w-[70px] h-[70px]">
+                        <h1 id="temp" class="font-bold">0°C</h1>
+                        <h2 id="city" class="font-bold">N/A</h2>
+                    </div>
+                </div>
+                <!-- manue items -->
+                <div class=" flex flex-col w-full gap-3 ">
+                    <div id="menunotebook" class=" w-full h-10 flex items-center pl-4 cursor-pointer hover:bg-gray-900">
+                        <h3>NoteBook</h3>
+                    </div>
+                    <div id="menucalculator"
+                        class=" w-full h-10 flex items-center pl-4 cursor-pointer hover:bg-gray-900">
+                        <h3>Calculator</h3>
+                    </div>
+                    <div class=" w-full h-10 flex items-center pl-4 cursor-pointer hover:bg-gray-900">
+                        <h3>My PC</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- this is botom bar start  -->
+        <div id="bottom" class="w-full h-[5%]  flex  items-center justify-between ">
+            <div id="start"><img src="windows.png" alt="win" class="w-8 h-8 mr-4 cursor-pointer ml-3 ">
+            </div>
+            <!-- search panel -->
+            <div class="flex items-center gap-5 justify-between">
+                <div>
+                    <input type="search" placeholder="Search"
+                        class="bg-gray-900  pl-2  pr-2 w-[300px] rounded-4xl  placeholder:text-white text-s p-1 ">
+                </div>
+                <div id="notebookmin" class="w-[30px] h-[30px] hidden hover:hover:scale-125"><img src="NoteBook.png"
+                        alt=""></div>
+                <div id="calcumin" class="w-[30px] h-[30px] hidden hover:hover:scale-125"><img src="calculator.png"
+                        alt=""></div>
+            </div>
+            <!-- wifi volume battery start -->
+            <div class="flex w-50% items-center  ">
+                <div class="flex ">
+                    <div>
+                        <img id="wifiicon" src="wifi-line.svg" class="w-[20px] h-[20px] mr-3 cursor-pointer">
+                    </div>
+
+                    <div id="batteryStatus ">
+                        <img id="batteryIcon" class="w-[25px] h-[25px] bg-cover cursor-pointer mr-5 " src="100.png"
+                            alt="battery">
+                        <span id="batteryText"
+                            class=" absolute top-165 right-20 bg-gray-900 w-50 h-9 p-1 rounded text-center hidden  ">--%</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div id="dateDisplay" class="mr-3 text-xs ">11:01 pm
+                    </div>
+                    <div id="timeDisplay" class="mr-3 text-xs ">26/06/2025</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    <!-- Weather app start -->
+    <div id="weatherapp"
+        class="w-[320px] h-[400px] bg-[url(weather2.jpg)] bg-cover bg-bottom rounded-4xl p-4 absolute z-50 top-50 left-100 flex items-center flex-col gap-10 hidden">
+        <div id="search" class="flex items-center justify-center gap-3">
+            <input type="search" placeholder="Enter City Name"
+                class="bg-gray-900 text-white rounded-4xl p-3 placeholder:text-gray-400 text-s"> <button><img
+                    src="Search2.png" alt="search"
+                    class="w-[50px] h-[50px] bg-gray-900 p-3 rounded-4xl cursor-pointer"></button>
+        </div>
+        <div class="text-center">
+            <img src="Weather cloudy.png" alt="image" class="day1 w-[90px] h-[90px]">
+            <h3 id="type" class="animate pulse"></h3>
+            <h1 id="temp1" class="font-bold text-4xl">0°C</h1>
+            <h3 id="city1" class="text-1xl">N/A</h3>
+        </div>
+        <div class="flex  gap-10">
+            <div class="flex ">
+                <img src="humuditywhite.png" alt="humidity" class="w-[50px] h-[50px] ">
+                <div>
+                    <h1 id="humidity" class="text-2xl text-white font-bold">0</h1>
+                    <h5 class="text-xs text-white"">Humidity</h5>
+                </div>
+            </div>
+            <div class=" flex">
+                        <img src="windwhite.png" alt="wind" class="w-[50px] h-[50px]">
+                        <div>
+                            <h1 id="wind" class="text-xl text-white">0</h1>
+                            <h5 class="text-xs text-white">Wind Speed</h5>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Notepad Start here  -->
+        <div id="notepadWindow" class="w-[500px] h-[300px] absolute top-50 left-100 border-gray-900  hidden ">
+            <div id="notepadTitle" class=" w-full h[20%] flex bg-gray-900 rounded-t-lg p-2">
+                <div id="notebook" class="w-[70%] h-[30%] text-white p-2">NoteBook</div>
+                <div id="items" class="flex w-[30%] h-[30%] gap-3">
+                    <div id="minimize" class="w-[40px] h-[40px] hover:bg-gray-700 p-2 "><img src="arrow down.png"
+                            alt=""></div>
+                    <div id="size" class="w-[40px] h-[40px] hover:bg-gray-700 p-2"><img src="square-line (1).png"
+                            alt=""></div>
+                    <div id="cross" class="w-[40px] h-[40px] hover:bg-red-900 p-2"><img src="close-line.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[90%]">
+                <textarea id="textarea"
+                    class="w-full h-full p-2 text-sm resize-none rounded-b-lg outline-none bg-white text-black"
+                    placeholder="Start typing..."></textarea>
+            </div>
+        </div>
+
+        <!-- Calculator  -->
+
+        <div id="calculatorWindow"
+            class=" absolute top-20 left-50 w-[300px] bg-gray-800  text-white rounded shadow-lg hidden">
+            <!-- Title Bar -->
+            <div class=" flex justify-between items-center bg-gray-900 p-2 cursor-move rounded-t-lg" id="calcDragBar">
+                <span>Calculator</span>
+                <div class="flex gap-2">
+                    <button id="calcMinimize"><img src="arrow down.png" class="w-4 h-4" /></button>
+                    <button id="calcClose"><img src="close-line.png" class="w-4 h-4" /></button>
+                </div>
+            </div>
+            <form action="">
+
+                <!-- Display -->
+                <div class="p-3">
+                    <input type="text" id="Display" readonly
+                        class="w-full text-right p-2 bg-white text-black rounded font-bold text-xl" />
+                </div>
+                <div id="Button" class="flex flex-col gap-5 p-4">
+                    <div class="flex  gap-5">
+                        <input class="btn1 operator" type="button" value="AC" onclick="Display.value = ' '">
+                        <input class="btn1 operator" type="button" value="DE"
+                            onclick="Display.value = Display.value.toString().slice(0,-1)">
+                        <input class="btn1" type="button" value="." onclick="Display.value += '.'">
+                        <input class="btn1" type="button" value="/" onclick="Display.value += '/'">
+                    </div>
+                    <div class="flex  gap-5">
+                        <input class="btn1" type="button" value="7" onclick="Display.value += '7'">
+                        <input class="btn1" type="button" value="8" onclick="Display.value += '7'">
+                        <input class="btn1" type="button" value="9" onclick="Display.value += '7'">
+                        <input class="btn1" type="button" value="x" onclick="Display.value += '*'">
+                    </div>
+                    <div class="flex  gap-5">
+                        <input class="btn1" type="button" value="4" onclick="Display.value += '4'">
+                        <input class="btn1" type="button" value="5" onclick="Display.value += '5'">
+                        <input class="btn1" type="button" value="6" onclick="Display.value += '6'">
+                        <input class="btn1" type="button" value="-" onclick="Display.value += '-'">
+                    </div>
+                    <div class="flex  gap-5">
+                        <input class="btn1" type="button" value="1" onclick="Display.value += '7'">
+                        <input class="btn1" type="button" value="2" onclick="Display.value += '2'">
+                        <input class="btn1" type="button" value="3" onclick="Display.value += '3'">
+                        <input class="btn1" type="button" value="+" onclick="Display.value += '+'">
+                    </div>
+                    <div class="flex  gap-5">
+                        <input class="btn1" type="button" value="00" onclick="Display.value += '00'">
+                        <input class="btn1" type="button" value="0" onclick="Display.value += '0'">
+                        <input class="btn1 equal" type="button" value="=" onclick="Display.value=eval(Display.value)">
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+
+        <!-- //wifi -->
+        <div class="wifi-window w-[300px] bg-gray-900 text-white p-4 rounded absolute top-100 right-10 hidden ">
+            <h3 class="text-lg font-bold mb-2">Available Networks</h3>
+            <ul class="space-y-2">
+                <li class="wifi-item cursor-pointer hover:bg-gray-700 p-2 rounded" data-name="Saad_5G">Saad_5G</li>
+                <li class="wifi-item cursor-pointer hover:bg-gray-700 p-2 rounded" data-name="Magnum_WiFi">Magnum_WiFi
+                </li>
+                <li class="wifi-item cursor-pointer hover:bg-gray-700 p-2 rounded" data-name="Guest_House">Guest_House
+                </li>
+            </ul>
+            <div class="mt-3 hidden" id="wifiConnectBox">
+                <input type="password" id="wifiPassword" placeholder="Enter Password"
+                    class="w-full p-2 rounded text-black" />
+                <button id="connectWifiBtn" class="mt-2 bg-blue-600 px-4 py-2 rounded">Connect</button>
+            </div>
+        </div>
+
+        <ul id="contextMenu" class="hidden absolute bg-gray-800 text-white shadow-lg rounded w-40 py-2 text-sm z-50">
+            <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">Open</li>
+            <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">Rename</li>
+            <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">Delete</li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
